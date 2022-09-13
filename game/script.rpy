@@ -7,7 +7,7 @@ define you =Character("Player") #same goes for player.
 label start: #this starts the game
 with fade #this is a transition effect
 
-show placeholder1 #to insert a sprite, type show filename. KEEP ALL IMAGES IN IMAGES FOLDER OF THE GAME
+scene placeholder1 #to insert a sprite, type show filename. KEEP ALL IMAGES IN IMAGES FOLDER OF THE GAME
 myst "“Welcome, chosen one - you might be confused about the circumstances you’re in but fret not, all will be revealed to you in due time.”" # put "" for dialogue 
 
 "You look around feeling a bit out of place. 
@@ -18,7 +18,7 @@ why does everything look much bigger than they usually do? You quickly scramble 
 
 you "“Uhm…why am I on a desk? Wait, who even are you?! What exactly am I doing here? I don’t understand-”"
 
-show placeholder2
+scene placeholder2
 "You lift your hand to point a finger at the mysterious char in front of you but you’re met with a paw. A tiny, black paw, to be exact."
 
 myst "*chuckles* Calm down, little one - you’ve taken the form of a cat."
@@ -27,7 +27,7 @@ you "“A CAT?! How is this possible? HOW am I able to speak?”"
 
 myst "“Well, can you feel that?”"
 
-show placeholder3
+scene placeholder3
 "The presence of magic can be felt in the air and it feels quite heavy. You feel a tug somewhere in 
 the depths of your being, as if it’s beckoning you to step forward and to accept it immediately."
 
@@ -38,7 +38,7 @@ myst "It can be volatile and dangerous if your emotional state is not in the rig
 But this is the primary reason why you and I can communicate well despite our differences in species.”"
 
 you "“...Is that right..?”"
-show placeholder5
+scene placeholder5
 "You look at your outstretched paws - opening and closing them, you can feel something electric flowing through them. 
 You held your breath and tried to recall any events before this - nothing comes to mind."
 
@@ -54,7 +54,7 @@ myst "Prior to this conversation, I found you unconscious in front of the librar
 You must’ve had a long journey from your origins, and hence I’ve ensured that you were taken…care of, per se."
 myst "But you say you cannot recall anything? That is quite unfortunate. As for your chosen partner, that is another matter we will arrive at in the near future.”"
 
-show placeholder4
+scene placeholder4
 "Mysterious character lifts a finger and a flying thick book comes towards them. Immediately, its pages open and flips through several pages before landing on a single one. "
 hide placeholder5 #TO SHOW A SPRITE AGAIN OF THE SAME CHARACTER LATER ON, TRY TO HIDE IT
 myst "*Reads the page and whispers*  “Hmm..loss of memory…this might be a side effect.”"
