@@ -1,13 +1,26 @@
 ﻿#PLEASE CHECK THE RENPY DOCUMENTATION BEFORE ASKING SOMETHING OVER HERE, IT'S EASY TO UNDERSTAND HOW TO WORK WITH THIS
 
-define myst =Character("Mysterious Man") #myst is how we will refer to this character in code. In-game he is currently called Mysterious Man
+define myst =Character("Mysterious Man", image = "mystprofile") #myst is how we will refer to this character in code. In-game he is currently called Mysterious Man
 define you =Character("Player") #same goes for player. 
+define fade = Fade(1.0,4.0,3.0) #if you want to change transition speed, change values here. (FADEINTIME,HOLDTIME,FADEOUTTIME)
+image magic1 = Movie(play="magappear.webm", side_mask=False, loop = False, image = "prologuemag.png")
+image magic2 = Movie(play="magmove.webm", side_mask=False, loop = True)
+image magic3 = Movie(play="magdim.webm", side_mask=False, loop = True)
+
+image side mystprofile normalface = "renpyprofile.png"
 
 # The game starts here.
 label start: #this starts the game
 with fade #this is a transition effect
+#scene blackplaceholder
 
-scene placeholder1 #to insert a sprite, type show filename. KEEP ALL IMAGES IN IMAGES FOLDER OF THE GAME
+
+play music "magetheme.mp3" fadein 2.0 #song composed by MAOU on https://opengameart.org/content/mage-theme fadein allows for transition
+#NOTE: ALL sound files must be kept in game folder and don't put it in a subfolder. Ren'py won't recognize it.
+
+
+scene cg1 #to insert a sprite, type show filename. KEEP ALL IMAGES IN IMAGES FOLDER OF THE GAME
+#NOTE: FILES NAMES SHOULD START WITH LOWER CASE
 myst "“Welcome, chosen one - you might be confused about the circumstances you’re in but fret not, all will be revealed to you in due time.”" # put "" for dialogue 
 
 "You look around feeling a bit out of place. 
@@ -19,6 +32,7 @@ why does everything look much bigger than they usually do? You quickly scramble 
 you "“Uhm…why am I on a desk? Wait, who even are you?! What exactly am I doing here? I don’t understand-”"
 
 scene placeholder2
+
 "You lift your hand to point a finger at the mysterious char in front of you but you’re met with a paw. A tiny, black paw, to be exact."
 
 myst "*chuckles* Calm down, little one - you’ve taken the form of a cat."
@@ -27,13 +41,15 @@ you "“A CAT?! How is this possible? HOW am I able to speak?”"
 
 myst "“Well, can you feel that?”"
 
-scene placeholder3
+show magic1
 "The presence of magic can be felt in the air and it feels quite heavy. You feel a tug somewhere in 
 the depths of your being, as if it’s beckoning you to step forward and to accept it immediately."
 
-myst "“What you’ve felt just now is a subtle force, or in other words, magic. It flows through everyone's veins, just as blood would, regardless of your societal status or your ancestral history. "
+show magic2
+myst normalface "“What you’ve felt just now is a subtle force, or in other words, magic. It flows through everyone's veins, just as blood would, regardless of your societal status or your ancestral history. "
 
 myst "It exists because your heart beats fervently. Careful now, magic isn’t something you can lightly wield or summon into existence."
+show magic3
 myst "It can be volatile and dangerous if your emotional state is not in the right place. 
 But this is the primary reason why you and I can communicate well despite our differences in species.”"
 
