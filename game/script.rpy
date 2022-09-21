@@ -54,12 +54,12 @@ scene placeholder3
 myst "“What you’ve felt just now is a subtle force, or in other words, magic."
 myst "It flows through everyone's veins, just as blood would, regardless of your societal status or your ancestral history."
 
-myst "It exists because your heart beats fervently.
+myst "It exists because your heart beats fervently."
 myst "Careful now, magic isn’t something you can lightly wield because it can be it can be volatile and dangerous."
 myst "If your emotional state is not in the right place." 
 myst "But this is the primary reason why you and I can communicate well despite our differences in species."
 
-you "“...Is that right..?”"
+you "...Is that right..?"
 scene placeholder5
 
 "I tried to wrack my head to recall any answers for this."
@@ -77,7 +77,7 @@ you "I can’t remember anything before this…"
 myst "“I know you have many questions but for starters, The place we are at is called TOWN NAME, found in the centre of COUNTRY NAME and we’re currently at our grand library."
 myst "We are a quaint town and home to some of the best schools in magic - so you may find the answers that you seek if you stay long enough. "
 
-myst "Prior to this conversation, I found you unconscious in front of the library three days ago.  
+myst "Prior to this conversation, I found you unconscious in front of the library three days ago."  
 myst "You must’ve had a long journey from your origins, and hence I’ve ensured that you were taken…care of, per se."
 myst "But you say you cannot recall anything? That is quite unfortunate. As for your chosen partner, that is another matter we will arrive at in the near future.”"
 
@@ -114,7 +114,7 @@ label question1: #option 1 answer
  
     myst "After all, I was the one that had saved you. If you ask nicely, I might give away some information about myself."
    
- menu: #this is another choice selection. labels are only necessary if you wanna refer to them repeatedly or for something important
+    menu: #this is another choice selection. labels are only necessary if you wanna refer to them repeatedly or for something important
         "I’m sorry, but you look suspicious. Why is your face covered?":
             jump question1A
         "I woke up in an unknown place with no recollection of my memories! It’s only natural that I don’t trust you.":
@@ -127,16 +127,17 @@ label question1: #option 1 answer
         jump tutorialquestions #this goes back to the choices again
 
     label question1B:
-    hide placeholder4
-    show placeholder5
-    myst "Touché. I do not blame you - but I can assure you that I have no interest in harming you." 
+        hide placeholder4
+        show placeholder5
+        myst "Touché. I do not blame you - but I can assure you that I have no interest in harming you." 
     
-    myst "It is your decision whether to trust me or not, but I only wish to help you. After all, I did take care of you all this time."
-    "They are right..they did help me…if they wanted me gone, they would’ve killed me off immediately or left me to die in the streets.."
-    you  "Alright, I’ll be under your care but only because I wish to know who I am, and how I’ve come to be."
-    myst "Thank you. If it helps to ease your worries, I am the head librarian of this town." 
-    myst "I make sure that our current knowledge of magic, our world and state of affairs are kept up to date in our records."
-    jump tutorialquestions
+        myst "It is your decision whether to trust me or not, but I only wish to help you. After all, I did take care of you all this time."
+    
+        "They are right..they did help me…if they wanted me gone, they would’ve killed me off immediately or left me to die in the streets.."
+        you  "Alright, I’ll be under your care but only because I wish to know who I am, and how I’ve come to be."
+        myst "Thank you. If it helps to ease your worries, I am the head librarian of this town." 
+        myst "I make sure that our current knowledge of magic, our world and state of affairs are kept up to date in our records."
+        jump tutorialquestions
 
 label question2:#option 2
 
@@ -176,7 +177,6 @@ label question2:#option 2
     myst "But to unlock its full potential you will have to know the person better. Just as you would with a new face, just as you have tried with me."
     jump tutorialquestions
 
-2
 label alldone: #option 3
     myst "My apologies, that was quite a lot of info splurged on there but I hope this has given you an idea of what you’re about to face."
     myst "Before you head off to the town and explore for yourself, I want to give you this map."
