@@ -1,20 +1,20 @@
-﻿#PLEASE CHECK THE RENPY DOCUMENTATION BEFORE ASKING SOMETHING OVER HERE, IT'S EASY TO UNDERSTAND HOW TO WORK WITH THIS
+#PLEASE CHECK THE RENPY DOCUMENTATION BEFORE ASKING SOMETHING OVER HERE, IT'S EASY TO UNDERSTAND HOW TO WORK WITH THIS
 
 define myst =Character("Mysterious Man", image = "mystprofile") #myst is how we will refer to this character in code. In-game he is currently called Mysterious Man
-define you =Character("Player") #same goes for player. 
+define you =Character("Player", image = "playerprofile") #same goes for player. 
 define fade = Fade(1.0,4.0,3.0) #if you want to change transition speed, change values here. (FADEINTIME,HOLDTIME,FADEOUTTIME)
 image magic1 = Movie(play="magappear.webm", side_mask=False, loop = False, image = "prologuemag.png")
 image magic2 = Movie(play="magmove.webm", side_mask=False, loop = True)
 image magic3 = Movie(play="magdim.webm", side_mask=False, loop = True)
 
-image side mystprofile normalface = "renpyprofile.png"
+image side mystprofile normalface = "mystprofile.png"
+image side playerprofile catdefault = "catprofile.png"
 
 # The game starts here.
 label start: #this starts the game
 with fade #this is a transition effect
 #scene blackplaceholder
 
-<<<<<<< HEAD
 
 play music "magetheme.mp3" fadein 2.0 #song composed by MAOU on https://opengameart.org/content/mage-theme fadein allows for transition
 #NOTE: ALL sound files must be kept in game folder and don't put it in a subfolder. Ren'py won't recognize it.
@@ -23,9 +23,6 @@ play music "magetheme.mp3" fadein 2.0 #song composed by MAOU on https://opengame
 scene cg1 #to insert a sprite, type show filename. KEEP ALL IMAGES IN IMAGES FOLDER OF THE GAME
 #NOTE: FILES NAMES SHOULD START WITH LOWER CASE
 myst "“Welcome, chosen one - you might be confused about the circumstances you’re in but fret not, all will be revealed to you in due time.”" # put "" for dialogue 
-=======
-scene placeholder1 #to insert a sprite, type show filename. KEEP ALL IMAGES IN IMAGES FOLDER OF THE GAME
->>>>>>> aed133a811987c9e0517d6240c2a2bd635d28743
 
 "I wake up on a desk feeling confused and disoriented."
 
@@ -47,57 +44,42 @@ you "........"
 you "Why am I on a desk? Wait, who even are you?!" 
 you "What exactly am I doing here? I don’t understand-"
 
-scene placeholder2
-<<<<<<< HEAD
+scene cg2
 
-"You lift your hand to point a finger at the mysterious char in front of you but you’re met with a paw. A tiny, black paw, to be exact."
-=======
 "You lift your hand to point a finger at the mysterious char in front of you but you’re met with a paw." 
 "A tiny, black paw, to be exact."
->>>>>>> aed133a811987c9e0517d6240c2a2bd635d28743
 
-myst "Calm down, little one - you’ve taken the form of a cat."
+myst normalface "Calm down, little one - you’ve taken the form of a cat."
 
-you "A CAT?! How is this possible? HOW am I able to speak?"
+you catdefault "A CAT?! How is this possible? HOW am I able to speak?"
 
 myst "Do not worry. The answers that you seek, will soon be revealed to you"
 
 "Wow, that totally sounds reassuring."
+
+scene prologuelib
 "Waking up in a unfamilliar place. Meeting a complete stranger."
 "Realising that I'm a talking cat... I should definitely not worry about this."
 
 myst "“Well, can you feel that?”"
 
-<<<<<<< HEAD
 show magic1
-"The presence of magic can be felt in the air and it feels quite heavy. You feel a tug somewhere in 
-the depths of your being, as if it’s beckoning you to step forward and to accept it immediately."
-
-show magic2
-myst normalface "“What you’ve felt just now is a subtle force, or in other words, magic. It flows through everyone's veins, just as blood would, regardless of your societal status or your ancestral history. "
-
-myst "It exists because your heart beats fervently. Careful now, magic isn’t something you can lightly wield or summon into existence."
-show magic3
-myst "It can be volatile and dangerous if your emotional state is not in the right place. 
-But this is the primary reason why you and I can communicate well despite our differences in species.”"
-=======
-scene placeholder3
 "The presence of magic can be felt in the air."
 "It feels quite heavy."
+show magic2
 "I feel a deep tug somewhere in the depths of my being."
 "Something is pushing me to step forward and to accept this…energy."
 
 myst "“What you’ve felt just now is a subtle force, or in other words, magic."
 myst "It flows through everyone's veins, just as blood would, regardless of your societal status or your ancestral history."
-
+show magic3
 myst "It exists because your heart beats fervently."
 myst "Careful now, magic isn’t something you can lightly wield because it can be it can be volatile and dangerous."
 myst "If your emotional state is not in the right place." 
 myst "But this is the primary reason why you and I can communicate well despite our differences in species."
->>>>>>> aed133a811987c9e0517d6240c2a2bd635d28743
 
 you "...Is that right..?"
-scene placeholder5
+scene prologuelib
 
 "I tried to wrack my head to recall any answers for this."
 "Anything that could explain how all of this had happened in the first place."
@@ -118,9 +100,8 @@ myst "Prior to this conversation, I found you unconscious in front of the librar
 myst "You must’ve had a long journey from your origins, and hence I’ve ensured that you were taken…care of, per se."
 myst "But you say you cannot recall anything? That is quite unfortunate. As for your chosen partner, that is another matter we will arrive at in the near future.”"
 
-scene placeholder4
 "Mysterious character lifts a finger and a flying thick book comes towards them. Immediately, its pages open and flips through several pages before landing on a single one. "
-hide placeholder5 #TO SHOW A SPRITE AGAIN OF THE SAME CHARACTER LATER ON, TRY TO HIDE IT
+ #TO SHOW A SPRITE AGAIN OF THE SAME CHARACTER LATER ON, TRY TO HIDE IT using hide filename
 "They quietly murmur something and look thoughtfully at the book."
 "My cat hearing seems to be quite handy."
 
@@ -128,8 +109,7 @@ myst "Hmm..loss of memory…this might be a side effect."
 
 "The book closes with a thud and the mysterious character faces you once more."
 
-show placeholder5
-hide placeholder4
+
 myst "“It seems that you’ll be under my care for as long as you’ll gain your memory back."  
 myst "Do you have any questions for me in the meantime?"
 
@@ -146,7 +126,6 @@ label tutorialquestions: #labels are used to refer to certain events in the game
             jump alldone
 
 label question1: #option 1 answer
-    show placeholder4 
     myst "*chuckles* I see the cat has bared its claws. That’s quite rude of you don’t you think?"
  
     myst "After all, I was the one that had saved you. If you ask nicely, I might give away some information about myself."
@@ -164,8 +143,7 @@ label question1: #option 1 answer
         jump tutorialquestions #this goes back to the choices again
 
     label question1B:
-        hide placeholder4
-        show placeholder5
+       
         myst "Touché. I do not blame you - but I can assure you that I have no interest in harming you." 
     
         myst "It is your decision whether to trust me or not, but I only wish to help you. After all, I did take care of you all this time."
