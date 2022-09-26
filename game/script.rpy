@@ -3,6 +3,13 @@
 define myst =Character("Mysterious Man", image = "mystprofile") #myst is how we will refer to this character in code. In-game he is currently called Mysterious Man
 define you =Character("Player", image = "playerprofile") #same goes for player. 
 define fade = Fade(1.0,4.0,3.0) #if you want to change transition speed, change values here. (FADEINTIME,HOLDTIME,FADEOUTTIME)
+
+
+#characters
+image myst summon = "wizardmagic.png"
+
+#backgrounds
+image candlelit = Movie(play="candlelibrary.webm", side_mask=False, loop = True)
 image magic1 = Movie(play="magappear.webm", side_mask=False, loop = False, image = "prologuemag.png")
 image magic2 = Movie(play="magmove.webm", side_mask=False, loop = True)
 image magic3 = Movie(play="magdim.webm", side_mask=False, loop = True)
@@ -20,7 +27,8 @@ play music "magetheme.mp3" fadein 2.0 #song composed by MAOU on https://opengame
 #NOTE: ALL sound files must be kept in game folder and don't put it in a subfolder. Ren'py won't recognize it.
 
 
-scene cg1 #to insert a sprite, type show filename. KEEP ALL IMAGES IN IMAGES FOLDER OF THE GAME
+show candlelit #to insert a sprite, type show filename. KEEP ALL IMAGES IN IMAGES FOLDER OF THE GAME
+show myst summon
 #NOTE: FILES NAMES SHOULD START WITH LOWER CASE
 myst "“Welcome, chosen one - you might be confused about the circumstances you’re in but fret not, all will be revealed to you in due time.”" # put "" for dialogue 
 
@@ -61,7 +69,7 @@ scene prologuelib
 "Waking up in a unfamilliar place. Meeting a complete stranger."
 "Realising that I'm a talking cat... I should definitely not worry about this."
 
-myst "“Well, can you feel that?”"
+myst normalface "“Well, can you feel that?”"
 
 show magic1
 "The presence of magic can be felt in the air."
@@ -78,7 +86,7 @@ myst "Careful now, magic isn’t something you can lightly wield because it can 
 myst "If your emotional state is not in the right place." 
 myst "But this is the primary reason why you and I can communicate well despite our differences in species."
 
-you "...Is that right..?"
+you catdefault"...Is that right..?"
 scene prologuelib
 
 "I tried to wrack my head to recall any answers for this."
@@ -86,7 +94,7 @@ scene prologuelib
 "But nothing comes to mind" 
 
 
-myst "Magic flows through your veins because you are also a familiar."
+myst normalface "Magic flows through your veins because you are also a familiar."
 myst "A mystical companion that forms a deep bond with its chosen witch or wizard." 
 myst "This allows the companion to gain certain skills and strengthens their magic through the shared bond."
 
@@ -100,6 +108,11 @@ myst "Prior to this conversation, I found you unconscious in front of the librar
 myst "You must’ve had a long journey from your origins, and hence I’ve ensured that you were taken…care of, per se."
 myst "But you say you cannot recall anything? That is quite unfortunate. As for your chosen partner, that is another matter we will arrive at in the near future.”"
 
+play sound pageflip1 #source: https://www.zapsplat.com/music/flipping-through-the-pages-of-a-book-1/
+pause 1.0
+play sound pageflip2 #source: https://www.zapsplat.com/music/flipping-through-the-pages-of-a-book-5/
+pause 1.0
+play sound pageflip3 #source: https://www.zapsplat.com/music/pages-of-a-paperback-book-flip-through-1/
 "Mysterious character lifts a finger and a flying thick book comes towards them. Immediately, its pages open and flips through several pages before landing on a single one. "
  #TO SHOW A SPRITE AGAIN OF THE SAME CHARACTER LATER ON, TRY TO HIDE IT using hide filename
 "They quietly murmur something and look thoughtfully at the book."
