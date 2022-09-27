@@ -7,6 +7,7 @@ define audio.magetheme = "audio/magetheme.mp3"
 define audio.pageflip1 = "audio/pageflip1.mp3"
 define audio.pageflip2 = "audio/pageflip2.mp3"
 define audio.pageflip3 = "audio/pageflip3.mp3"
+default preferences.text_cps = 42
 
 #characters
 image myst summon = "wizardmagic.png"
