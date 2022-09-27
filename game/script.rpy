@@ -3,7 +3,10 @@
 define myst =Character("Mysterious Man", image = "mystprofile") #myst is how we will refer to this character in code. In-game he is currently called Mysterious Man
 define you =Character("Player", image = "playerprofile") #same goes for player. 
 define fade = Fade(1.0,4.0,3.0) #if you want to change transition speed, change values here. (FADEINTIME,HOLDTIME,FADEOUTTIME)
-
+define audio.magetheme = "audio/magetheme.mp3"
+define audio.pageflip1 = "audio/pageflip1.mp3"
+define audio.pageflip2 = "audio/pageflip2.mp3"
+define audio.pageflip3 = "audio/pageflip3.mp3"
 
 #characters
 image myst summon = "wizardmagic.png"
@@ -23,7 +26,7 @@ with fade #this is a transition effect
 #scene blackplaceholder
 
 
-play music "magetheme.mp3" fadein 2.0 #song composed by MAOU on https://opengameart.org/content/mage-theme fadein allows for transition
+play music magetheme fadein 2.0 #song composed by MAOU on https://opengameart.org/content/mage-theme fadein allows for transition
 #NOTE: ALL sound files must be kept in game folder and don't put it in a subfolder. Ren'py won't recognize it.
 
 
@@ -180,6 +183,12 @@ label question2:#option 2
     myst "But your lack of memory and connection with being a cat is what's troubling."
 
     "Mysterious Character beckons a finger and several books come flying towards them again and opens simultaneously. The sound of turning pages echoed throughout the room."
+   
+    play sound pageflip1
+    pause 1.0
+    play sound pageflip2 
+    pause 1.0 
+    play sound pageflip3
 
     myst "“To successfully transform back, I would need you to have a strong bond with your magic - to be able to have a connection with yourself." 
     myst "I suppose, this is where I would tell you that you must find a partner you can bond with to strengthen your magic."
