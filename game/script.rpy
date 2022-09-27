@@ -28,21 +28,19 @@ with fade #this is a transition effect
 #scene blackplaceholder
 
 
-#play music "magetheme.mp3" fadein 2.0 #song composed by MAOU on https://opengameart.org/content/mage-theme fadein allows for transition
 #NOTE: ALL sound files must be kept in game folder and don't put it in a subfolder. Ren'py won't recognize it.
 
 
 show candlelit #to insert a sprite, type show filename. KEEP ALL IMAGES IN IMAGES FOLDER OF THE GAME
 show myst summon
-play music gamemusic
+play music gamemusic fadein 3.0 #song composed by MAOU on https://opengameart.org/content/mage-theme fadein allows for transition
 #NOTE: FILES NAMES SHOULD START WITH LOWER CASE
-myst "“Welcome, chosen one - you might be confused about the circumstances you’re in but fret not, all will be revealed to you in due time.”" # put "" for dialogue 
 
 "I wake up on a desk feeling confused and disoriented."
 
 "My head throbs at the sudden view of the light across the room." 
 
-myst "Welcome, chosen one." # put "" for dialogue 
+myst "Greetings, chosen one." # put "" for dialogue 
 
 you "........"
 
