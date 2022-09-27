@@ -17,6 +17,7 @@ image candlelit = Movie(play="candlelibrary.webm", side_mask=False, loop = True)
 image magic1 = Movie(play="magappear.webm", side_mask=False, loop = False, image = "prologuemag.png")
 image magic2 = Movie(play="magmove.webm", side_mask=False, loop = True)
 image magic3 = Movie(play="magdim.webm", side_mask=False, loop = True)
+image booklib = "bookslib.png"
 
 image side mystprofile normalface = "mystprofile.png"
 image side playerprofile catdefault = "catprofile.png"
@@ -28,7 +29,6 @@ with fade #this is a transition effect
 
 
 play music magetheme fadein 2.0 #song composed by MAOU on https://opengameart.org/content/mage-theme fadein allows for transition
-#NOTE: ALL sound files must be kept in game folder and don't put it in a subfolder. Ren'py won't recognize it.
 
 
 show candlelit #to insert a sprite, type show filename. KEEP ALL IMAGES IN IMAGES FOLDER OF THE GAME
@@ -83,8 +83,11 @@ show magic2
 "Something is pushing me to step forward and to accept this…energy."
 
 myst "“What you’ve felt just now is a subtle force, or in other words, magic."
+show myst summon 
 myst "It flows through everyone's veins, just as blood would, regardless of your societal status or your ancestral history."
 show magic3
+hide myst summon #this is added so that the sprite remains. it seems like magic 3 is layered over the previous wiz sprite
+show myst summon
 myst "It exists because your heart beats fervently."
 myst "Careful now, magic isn’t something you can lightly wield because it can be it can be volatile and dangerous."
 myst "If your emotional state is not in the right place." 
@@ -92,7 +95,7 @@ myst "But this is the primary reason why you and I can communicate well despite 
 
 you catdefault"...Is that right..?"
 scene prologuelib
-
+show myst summon
 "I tried to wrack my head to recall any answers for this."
 "Anything that could explain how all of this had happened in the first place."
 "But nothing comes to mind" 
@@ -111,6 +114,9 @@ myst "We are a quaint town and home to some of the best schools in magic - so yo
 myst "Prior to this conversation, I found you unconscious in front of the library three days ago."  
 myst "You must’ve had a long journey from your origins, and hence I’ve ensured that you were taken…care of, per se."
 myst "But you say you cannot recall anything? That is quite unfortunate. As for your chosen partner, that is another matter we will arrive at in the near future.”"
+
+scene booklib
+show myst summon
 
 play sound pageflip1 #source: https://www.zapsplat.com/music/flipping-through-the-pages-of-a-book-1/
 pause 1.0
