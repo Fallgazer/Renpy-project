@@ -29,8 +29,7 @@ with fade #this is a transition effect
 #scene blackplaceholder
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 play music magetheme fadein 2.0 #song composed by MAOU on https://opengameart.org/content/mage-theme fadein allows for transition
 
 
