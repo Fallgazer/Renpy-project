@@ -7,7 +7,9 @@ define audio.gamemusic = "audio/magetheme.mp3"
 define audio.pageflip1 = "audio/pageflip1.mp3"
 define audio.pageflip2 = "audio/pageflip2.mp3"
 define audio.pageflip3 = "audio/pageflip3.mp3"
-define audio.magechuckle = "audio/magechuckle.mp3"
+define audio.magechuckle = "audio/magechuckle.mp3" #Sean Lenhart/Miscellaneous 12
+define audio.magegreetings = "audio/magegreetings.mp3" #Sean Lenhart/Greeting 7 
+define audio.magehmm = "audio/magehmm.mp3" #Ian Lampert/Miscellaneous 2
 default preferences.text_cps = 42
 
 #characters
@@ -18,7 +20,6 @@ image candlelit = Movie(play="candlelibrary.webm", side_mask=False, loop = True)
 image magic1 = Movie(play="magappear.webm", side_mask=False, loop = False, image = "prologuemag.png")
 image magic2 = Movie(play="magmove.webm", side_mask=False, loop = True)
 image magic3 = Movie(play="magdim.webm", side_mask=False, loop = True)
-image booklib = "bookslib.png"
 
 image side mystprofile normalface = "mystprofile.png"
 image side playerprofile catdefault = "catprofile.png"
@@ -29,9 +30,8 @@ with fade #this is a transition effect
 #scene blackplaceholder
 
 
-
-play music magetheme fadein 2.0 #song composed by MAOU on https://opengameart.org/content/mage-theme fadein allows for transition
-
+ 
+#NOTE: ALL sound files must be kept in game folder and don't put it in a subfolder. Ren'py won't recognize it.
 
 
 show candlelit #to insert a sprite, type show filename. KEEP ALL IMAGES IN IMAGES FOLDER OF THE GAME
@@ -42,7 +42,7 @@ play music gamemusic fadein 3.0 #song composed by MAOU on https://opengameart.or
 "I wake up on a desk feeling confused and disoriented."
 
 "My head throbs at the sudden view of the light across the room." 
-
+play sound magegreetings
 myst "Greetings, chosen one." # put "" for dialogue 
 
 you "........"
@@ -86,11 +86,8 @@ show magic2
 "Something is pushing me to step forward and to accept this…energy."
 
 myst "“What you’ve felt just now is a subtle force, or in other words, magic."
-show myst summon 
 myst "It flows through everyone's veins, just as blood would, regardless of your societal status or your ancestral history."
 show magic3
-hide myst summon #this is added so that the sprite remains. it seems like magic 3 is layered over the previous wiz sprite
-show myst summon
 myst "It exists because your heart beats fervently."
 myst "Careful now, magic isn’t something you can lightly wield because it can be it can be volatile and dangerous."
 myst "If your emotional state is not in the right place." 
@@ -98,7 +95,7 @@ myst "But this is the primary reason why you and I can communicate well despite 
 
 you catdefault"...Is that right..?"
 scene prologuelib
-show myst summon
+
 "I tried to wrack my head to recall any answers for this."
 "Anything that could explain how all of this had happened in the first place."
 "But nothing comes to mind" 
@@ -118,9 +115,6 @@ myst "Prior to this conversation, I found you unconscious in front of the librar
 myst "You must’ve had a long journey from your origins, and hence I’ve ensured that you were taken…care of, per se."
 myst "But you say you cannot recall anything? That is quite unfortunate. As for your chosen partner, that is another matter we will arrive at in the near future.”"
 
-scene booklib
-show myst summon
-
 play sound pageflip1 #source: https://www.zapsplat.com/music/flipping-through-the-pages-of-a-book-1/
 pause 1.0
 play sound pageflip2 #source: https://www.zapsplat.com/music/flipping-through-the-pages-of-a-book-5/
@@ -131,6 +125,7 @@ play sound pageflip3 #source: https://www.zapsplat.com/music/pages-of-a-paperbac
 "They quietly murmur something and look thoughtfully at the book."
 "My cat hearing seems to be quite handy."
 
+play sound magehmm
 myst "Hmm..loss of memory…this might be a side effect."
 
 "The book closes with a thud and the mysterious character faces you once more."
