@@ -14,6 +14,8 @@ default preferences.text_cps = 42
 
 #characters
 image myst summon = "wizardmagic.png"
+image myst talk = "wizardtalk.png"
+image myst think = "wizardthink.png"
 
 #backgrounds
 image candlelit = Movie(play="candlelibrary.webm", side_mask=False, loop = True)
@@ -23,6 +25,17 @@ image magic3 = Movie(play="magdim.webm", side_mask=False, loop = True)
 
 image side mystprofile normalface = "mystprofile.png"
 image side playerprofile catdefault = "catprofile.png"
+image side playerprofile catbruh = "catbruh.png"
+image side playerprofile cathappy = "cathappy.png"
+image side playerprofile catangry = "catpiss.png"
+image side playerprofile catsigh = "catsigh.png"
+image side playerprofile catconfused= "catthonk.png"
+
+#Adjusting Wizard sprite position 
+transform mystmoveup:
+    xalign 0.5 yalign 6.0
+
+
 
 # The game starts here.
 label start: #this starts the game
@@ -66,7 +79,7 @@ scene cg2
 
 myst normalface "Calm down, little one - you’ve taken the form of a cat."
 
-you catdefault "A CAT?! How is this possible? HOW am I able to speak?"
+you catangry "A CAT?! How is this possible? HOW am I able to speak?"
 
 myst "Do not worry. The answers that you seek, will soon be revealed to you"
 
@@ -93,26 +106,29 @@ myst "Careful now, magic isn’t something you can lightly wield because it can 
 myst "If your emotional state is not in the right place." 
 myst "But this is the primary reason why you and I can communicate well despite our differences in species."
 
-you catdefault"...Is that right..?"
+you catconfused "...Is that right..?"
 scene prologuelib
 
 "I tried to wrack my head to recall any answers for this."
 "Anything that could explain how all of this had happened in the first place."
 "But nothing comes to mind" 
 
-
-myst normalface "Magic flows through your veins because you are also a familiar."
+show myst talk at mystmoveup
+myst "Magic flows through your veins because you are also a familiar."
 myst "A mystical companion that forms a deep bond with its chosen witch or wizard." 
 myst "This allows the companion to gain certain skills and strengthens their magic through the shared bond."
 
-you "If that’s the case then where is my partner? How did I get here?" 
-you "I can’t remember anything before this…"
+you catbruh "If that’s the case then where is my partner? How did I get here?" 
+you catconfused "I can’t remember anything before this…"
 
-myst "“I know you have many questions but for starters, The place we are at is called TOWN NAME, found in the centre of COUNTRY NAME and we’re currently at our grand library."
+myst "I know you have many questions but for starters, The place we are at is called TOWN NAME, found in the centre of COUNTRY NAME."
+myst "We’re currently at our grand library."
 myst "We are a quaint town and home to some of the best schools in magic - so you may find the answers that you seek if you stay long enough. "
 
 myst "Prior to this conversation, I found you unconscious in front of the library three days ago."  
 myst "You must’ve had a long journey from your origins, and hence I’ve ensured that you were taken…care of, per se."
+
+show myst think
 myst "But you say you cannot recall anything? That is quite unfortunate. As for your chosen partner, that is another matter we will arrive at in the near future.”"
 
 play sound pageflip1 #source: https://www.zapsplat.com/music/flipping-through-the-pages-of-a-book-1/
@@ -130,6 +146,7 @@ myst "Hmm..loss of memory…this might be a side effect."
 
 "The book closes with a thud and the mysterious character faces you once more."
 
+show myst talk at mystmoveup
 
 myst "“It seems that you’ll be under my care for as long as you’ll gain your memory back."  
 myst "Do you have any questions for me in the meantime?"
@@ -149,6 +166,8 @@ label tutorialquestions: #labels are used to refer to certain events in the game
 label question1: #option 1 answer
 
     play sound magechuckle
+    
+    show myst talk at mystmoveup
     myst "I see the cat has bared its claws. That’s quite rude of you don’t you think?"
  
     myst "After all, I was the one that had saved you. If you ask nicely, I might give away some information about myself."
@@ -159,7 +178,7 @@ label question1: #option 1 answer
         "I woke up in an unknown place with no recollection of my memories! It’s only natural that I don’t trust you.":
             jump question1B
     label question1A:
-
+        show myst talk at mystmoveup
         myst "“That’s better! This robe does seem intimidating doesn’t it?"
         myst  "Don’t worry, I have no interest in causing harm towards you."
         myst "Well, if you must know I’m the head librarian of this town - I ensure that the state of our knowledge is being kept up to date in our records."
@@ -168,11 +187,12 @@ label question1: #option 1 answer
     label question1B:
        
         myst "Touché. I do not blame you - but I can assure you that I have no interest in harming you." 
-    
+        show myst think
         myst "It is your decision whether to trust me or not, but I only wish to help you. After all, I did take care of you all this time."
     
         "They are right..they did help me…if they wanted me gone, they would’ve killed me off immediately or left me to die in the streets.."
         you  "Alright, I’ll be under your care but only because I wish to know who I am, and how I’ve come to be."
+        show myst talk at mystmoveup
         myst "Thank you. If it helps to ease your worries, I am the head librarian of this town." 
         myst "I make sure that our current knowledge of magic, our world and state of affairs are kept up to date in our records."
         jump tutorialquestions
@@ -183,13 +203,15 @@ label question2:#option 2
     myst "This could be a treasured trinket or something that you would have used often. Then only would we be able to trace out your roots and transform you back."
 
     you "But..I have nothing on me..right now. How am I supposed to find something from the past when I can’t even remember?" 
-    you "I don’t even know if I was a cat this whole time or not."
-
+    you catconfused "I don’t even know if I was a cat this whole time or not."
+    
+    show myst think
     "Mysterious Character paused and looks at you with a thoughtful look."
     myst "“Familiars are often made from normal, unmodified animals. So you wouldn’t be wrong in thinking that you were technically a cat this whole time."
+    
     myst "But your lack of memory and connection with being a cat is what's troubling."
 
-    "Mysterious Character beckons a finger and several books come flying towards them again and opens simultaneously. The sound of turning pages echoed throughout the room."
+    "Mysterious Character beckons a finger and several books come flying towards them again and opens simultaneously."
     play sound pageflip1
     pause 1.0
     play sound pageflip2 
@@ -198,28 +220,29 @@ label question2:#option 2
     myst "“To successfully transform back, I would need you to have a strong bond with your magic - to be able to have a connection with yourself." 
     myst "I suppose, this is where I would tell you that you must find a partner you can bond with to strengthen your magic."
 
-    you "”What?! I don’t even know anyone in this town. Let alone, I’ve never dealt with witches and wizards before.”"
-
+    you catbruh "”What?! I don’t even know anyone in this town. Let alone, I’ve never dealt with witches and wizards before.”"
+    show myst talk at mystmoveup
     myst "“Perhaps this will be a good starting point then. After all, you must remember that the strength of your magic lies within your heart and is linked with your partner’s potential. "
-    myst "Once the connection between you and your partner is strong enough, your magic will be stable enough to give you glimpses of your past, of your original self and then only can we establish a direct link to your original form along with your memento."
+    myst "Once the connection between you and your partner is strong enough, your magic will be stable enough to give you glimpses of your past, of your original self"
+    mysr "And then only can we establish a direct link to your original form along with your memento."
 
     "I sighed deeply and looked at the mysterious character wearily."
-    "This sounds troublesome."
-    "Not only am I dealing with my lack of memroy but now I must find someone to link with."
-
+    you catsigh "This sounds troublesome."
+  
     myst "I know what you’re thinking but as I’ve said, I’m here to help you." 
     myst "You will not be doing this alone, I will provide aid when necessary and I will guide you to the right person that will be able to bond with you."
 
-    you "“So how do I know whether a person is good enough to bond with?”"
+    you catdefault "“So how do I know whether a person is good enough to bond with?”"
 
     "Mysterious Character looks at you with a small smile."
-
+    show myst summon
     myst "That my dear companion, is up to you. As you once judged me and checked whether I was worthy of your trust or not, the same concept applies."
     myst "Once close enough to a person, you will be able to feel a slight tug of magic in yourself."
     myst "But to unlock its full potential you will have to know the person better. Just as you would with a new face, just as you have tried with me."
     jump tutorialquestions
 
 label alldone: #option 3
+    show myst talk at mystmoveup
     myst "My apologies, that was quite a lot of info splurged on there but I hope this has given you an idea of what you’re about to face."
     myst "Before you head off to the town and explore for yourself, I want to give you this map."
     myst "Take it, you’ll need it to navigate the area."
