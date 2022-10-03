@@ -2,7 +2,11 @@
 
 define myst =Character("Mysterious Man", image = "mystprofile") #myst is how we will refer to this character in code. In-game he is currently called Mysterious Man
 define you =Character("Player", image = "playerprofile") #same goes for player. 
+
+#Transtions
 define fade = Fade(1.0,4.0,3.0) #if you want to change transition speed, change values here. (FADEINTIME,HOLDTIME,FADEOUTTIME)
+define dissolving = Dissolve(0.2)
+#Audio
 define audio.gamemusic = "audio/magetheme.mp3"
 define audio.pageflip1 = "audio/pageflip1.mp3"
 define audio.pageflip2 = "audio/pageflip2.mp3"
@@ -12,7 +16,7 @@ define audio.magegreetings = "audio/magegreetings.mp3" #Sean Lenhart/Greeting 7
 define audio.magehmm = "audio/magehmm.mp3" #Ian Lampert/Miscellaneous 2
 default preferences.text_cps = 42
 
-#characters
+#wizard sprites
 image myst summon = "wizardmagic.png"
 image myst talk = "wizardtalk.png"
 image myst think = "wizardthink.png"
@@ -23,6 +27,7 @@ image magic1 = Movie(play="magappear.webm", side_mask=False, loop = False, image
 image magic2 = Movie(play="magmove.webm", side_mask=False, loop = True)
 image magic3 = Movie(play="magdim.webm", side_mask=False, loop = True)
 
+#SIDE PROFILES
 image side mystprofile normalface = "mystprofile.png"
 image side playerprofile catdefault = "catprofile.png"
 image side playerprofile catbruh = "catbruh.png"
@@ -33,7 +38,9 @@ image side playerprofile catconfused= "catthonk.png"
 
 #Adjusting Wizard sprite position 
 transform mystmoveup:
-    xalign 0.5 yalign 6.0
+    xpos 0.1 
+    ypos -0.2
+
 
 
 
@@ -48,7 +55,7 @@ with fade #this is a transition effect
 
 
 show candlelit #to insert a sprite, type show filename. KEEP ALL IMAGES IN IMAGES FOLDER OF THE GAME
-show myst summon
+show myst summon with dissolving 
 play music gamemusic fadein 3.0 #song composed by MAOU on https://opengameart.org/content/mage-theme fadein allows for transition
 #NOTE: FILES NAMES SHOULD START WITH LOWER CASE
 
@@ -72,7 +79,7 @@ you "........"
 you "Why am I on a desk? Wait, who even are you?!" 
 you "What exactly am I doing here? I don’t understand-"
 
-scene cg2
+scene cg2 with dissolving
 
 "You lift your hand to point a finger at the mysterious char in front of you but you’re met with a paw." 
 "A tiny, black paw, to be exact."
@@ -113,7 +120,7 @@ scene prologuelib
 "Anything that could explain how all of this had happened in the first place."
 "But nothing comes to mind" 
 
-show myst talk at mystmoveup
+show myst talk at mystmoveup with dissolving
 myst "Magic flows through your veins because you are also a familiar."
 myst "A mystical companion that forms a deep bond with its chosen witch or wizard." 
 myst "This allows the companion to gain certain skills and strengthens their magic through the shared bond."
@@ -154,8 +161,9 @@ myst "Do you have any questions for me in the meantime?"
 
 
 label tutorialquestions: #labels are used to refer to certain events in the game, in this case it's the questions choice menu
+    hide myst talk
     menu: #declare this if you want to make a choice selection
-    
+        
         "Who the hell are you?!": #option 1
             jump question1 #to go to answer of option 1, type jump and then a label name for reference
         "Will you eventually turn me back to what I was?": #option 2
@@ -167,27 +175,28 @@ label question1: #option 1 answer
 
     play sound magechuckle
     
-    show myst talk at mystmoveup
+    show myst talk at mystmoveup with dissolving
     myst "I see the cat has bared its claws. That’s quite rude of you don’t you think?"
  
     myst "After all, I was the one that had saved you. If you ask nicely, I might give away some information about myself."
-   
+    hide myst talk
+
     menu: #this is another choice selection. labels are only necessary if you wanna refer to them repeatedly or for something important
         "I’m sorry, but you look suspicious. Why is your face covered?":
             jump question1A
         "I woke up in an unknown place with no recollection of my memories! It’s only natural that I don’t trust you.":
             jump question1B
     label question1A:
-        show myst talk at mystmoveup
+        show myst talk at mystmoveup with dissolving
         myst "“That’s better! This robe does seem intimidating doesn’t it?"
         myst  "Don’t worry, I have no interest in causing harm towards you."
         myst "Well, if you must know I’m the head librarian of this town - I ensure that the state of our knowledge is being kept up to date in our records."
         jump tutorialquestions #this goes back to the choices again
 
     label question1B:
-       
+        show myst talk at mystmoveup with dissolving
         myst "Touché. I do not blame you - but I can assure you that I have no interest in harming you." 
-        show myst think
+        show myst think at mystmoveup
         myst "It is your decision whether to trust me or not, but I only wish to help you. After all, I did take care of you all this time."
     
         "They are right..they did help me…if they wanted me gone, they would’ve killed me off immediately or left me to die in the streets.."
@@ -198,14 +207,13 @@ label question1: #option 1 answer
         jump tutorialquestions
 
 label question2:#option 2
-
+    show myst talk at mystmoveup with dissolving
     myst "I will try my best to help you change back to your original form, however to do that we would have to acquire a memento of yours from your original form."
     myst "This could be a treasured trinket or something that you would have used often. Then only would we be able to trace out your roots and transform you back."
-
     you "But..I have nothing on me..right now. How am I supposed to find something from the past when I can’t even remember?" 
     you catconfused "I don’t even know if I was a cat this whole time or not."
     
-    show myst think
+    show myst think at mystmoveup
     "Mysterious Character paused and looks at you with a thoughtful look."
     myst "“Familiars are often made from normal, unmodified animals. So you wouldn’t be wrong in thinking that you were technically a cat this whole time."
     
@@ -242,7 +250,7 @@ label question2:#option 2
     jump tutorialquestions
 
 label alldone: #option 3
-    show myst talk at mystmoveup
+    show myst talk at mystmoveup with dissolving
     myst "My apologies, that was quite a lot of info splurged on there but I hope this has given you an idea of what you’re about to face."
     myst "Before you head off to the town and explore for yourself, I want to give you this map."
     myst "Take it, you’ll need it to navigate the area."
