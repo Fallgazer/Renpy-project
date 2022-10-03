@@ -120,3 +120,13 @@ CubismSdkForNative-4-*.zip
 # Works in progress, throwaway scripts, etc.
 /scratch
 /*-dists
+
+## Custom
+# remove cache folder
+game/cache/
+# remove saves folder
+game/saves/
+# remove log file
+log.txt
+# remove error file
+errors.txt
