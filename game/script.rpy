@@ -224,7 +224,7 @@ label question2:#option 2
     show myst talk at mystmoveup
     myst "“Perhaps this will be a good starting point then. After all, you must remember that the strength of your magic lies within your heart and is linked with your partner’s potential. "
     myst "Once the connection between you and your partner is strong enough, your magic will be stable enough to give you glimpses of your past, of your original self"
-    mysr "And then only can we establish a direct link to your original form along with your memento."
+    myst "And then only can we establish a direct link to your original form along with your memento."
 
     "I sighed deeply and looked at the mysterious character wearily."
     you catsigh "This sounds troublesome."
