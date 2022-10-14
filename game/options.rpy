@@ -33,6 +33,7 @@ define gui.about = _p("""
 """)
 
 
+
 ## A short name for the game used for executables and directories in the built
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
@@ -63,7 +64,7 @@ define config.has_voice = True
 ## game, until it is stopped or another file is played.
 
 # define config.main_menu_music = "main-menu-theme.ogg"
-define config.main_menu_music = "audio/periwinkle.mp3"
+define config.main_menu_music = "audio/periwinkle_edit.mp3" #by Axton Crolley https://opengameart.org/content/happy-go-lucky-puzzle
 
 ## Transitions #################################################################
 ##
@@ -194,6 +195,7 @@ init python:
 
     build.documentation('*.html')
     build.documentation('*.txt')
+
 
 
 ## A Google Play license key is required to download expansion files and perform

@@ -100,7 +100,6 @@ screen say(who, what):
 
     window:
         id "window"
-
         if who is not None:
 
             window:
@@ -301,7 +300,7 @@ screen navigation():
 
 
             else:
-                imagebutton auto "gui/main_menu/buttons/start_%s.png" xpos 763 ypos 341 focus_mask True action Start()
+                imagebutton auto "gui/main_menu/buttons/start_%s.png" xpos 763 ypos 341 focus_mask True action Start() #original xpos 763 ypos 341
 
                 textbutton _("Save") action ShowMenu("save")
 
@@ -440,6 +439,8 @@ screen main_menu():
     if gui.show_name:
 
         vbox:
+            xalign 0.1
+            yalign 0.15
             style "main_menu_vbox"
 
             text "[config.name!t]":
@@ -823,6 +824,8 @@ screen preferences():
         hotspot (1601, 698, 229, 96) action Quit()
 
         hotspot (1448, 183, 64, 65) action Return()
+
+   
 
 
 ## History screen ##############################################################
@@ -1441,3 +1444,4 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 900
+

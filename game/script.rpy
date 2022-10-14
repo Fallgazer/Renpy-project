@@ -39,10 +39,11 @@ image side playerprofile catconfused= "catthonk.png"
 #Adjusting Wizard sprite position 
 transform mystmoveup:
     xpos 0.1 
-    ypos -0.2
+    ypos -0.0
 
 
-
+#Adjusting textbox opacity
+define persistent.dialogueBoxOpacity = 1.0
 
 # The game starts here.
 label start: #this starts the game
@@ -143,6 +144,8 @@ pause 1.0
 play sound pageflip2 #source: https://www.zapsplat.com/music/flipping-through-the-pages-of-a-book-5/
 pause 1.0
 play sound pageflip3 #source: https://www.zapsplat.com/music/pages-of-a-paperback-book-flip-through-1/
+scene bookslib
+show myst think
 "Mysterious character lifts a finger and a flying thick book comes towards them. Immediately, its pages open and flips through several pages before landing on a single one. "
  #TO SHOW A SPRITE AGAIN OF THE SAME CHARACTER LATER ON, TRY TO HIDE IT using hide filename
 "They quietly murmur something and look thoughtfully at the book."
@@ -152,7 +155,7 @@ play sound magehmm
 myst "Hmm..loss of memory…this might be a side effect."
 
 "The book closes with a thud and the mysterious character faces you once more."
-
+scene prologuelib
 show myst talk at mystmoveup
 
 myst "“It seems that you’ll be under my care for as long as you’ll gain your memory back."  
