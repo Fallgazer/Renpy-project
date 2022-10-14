@@ -64,7 +64,7 @@ define config.has_voice = True
 ## game, until it is stopped or another file is played.
 
 # define config.main_menu_music = "main-menu-theme.ogg"
-define config.main_menu_music = "audio/periwinkle.mp3"
+define config.main_menu_music = "audio/periwinkle_edit.mp3" #by Axton Crolley https://opengameart.org/content/happy-go-lucky-puzzle
 
 ## Transitions #################################################################
 ##
