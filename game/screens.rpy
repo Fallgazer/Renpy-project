@@ -100,7 +100,6 @@ screen say(who, what):
 
     window:
         id "window"
-
         if who is not None:
 
             window:
@@ -824,6 +823,8 @@ screen preferences():
 
         hotspot (1448, 183, 64, 65) action Return()
 
+   
+
 
 ## History screen ##############################################################
 ##
@@ -1441,3 +1442,4 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 900
+

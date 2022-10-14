@@ -33,6 +33,7 @@ define gui.about = _p("""
 """)
 
 
+
 ## A short name for the game used for executables and directories in the built
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
@@ -194,6 +195,7 @@ init python:
 
     build.documentation('*.html')
     build.documentation('*.txt')
+
 
 
 ## A Google Play license key is required to download expansion files and perform

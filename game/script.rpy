@@ -39,10 +39,11 @@ image side playerprofile catconfused= "catthonk.png"
 #Adjusting Wizard sprite position 
 transform mystmoveup:
     xpos 0.1 
-    ypos -0.2
+    ypos -0.0
 
 
-
+#Adjusting textbox opacity
+define persistent.dialogueBoxOpacity = 1.0
 
 # The game starts here.
 label start: #this starts the game
