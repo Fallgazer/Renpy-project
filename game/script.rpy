@@ -6,8 +6,11 @@ define you =Character("Player", image = "playerprofile") #same goes for player.
 #Transtions
 define fade = Fade(1.0,4.0,3.0) #if you want to change transition speed, change values here. (FADEINTIME,HOLDTIME,FADEOUTTIME)
 define dissolving = Dissolve(0.2)
-#Audio
-define audio.gamemusic = "audio/magetheme.mp3"
+
+#BG music
+define audio.intromusic = "audio/magetheme.mp3"
+
+#SFX
 define audio.pageflip1 = "audio/pageflip1.mp3"
 define audio.pageflip2 = "audio/pageflip2.mp3"
 define audio.pageflip3 = "audio/pageflip3.mp3"
@@ -26,7 +29,7 @@ image candlelit = Movie(play="candlelibrary.webm", side_mask=False, loop = True)
 image magic1 = Movie(play="magappear.webm", side_mask=False, loop = False, image = "prologuemag.png")
 image magic2 = Movie(play="magmove.webm", side_mask=False, loop = True)
 image magic3 = Movie(play="magdim.webm", side_mask=False, loop = True)
-
+image black = "blackplaceholder.png"
 #SIDE PROFILES
 image side mystprofile normalface = "mystprofile.png"
 image side playerprofile catdefault = "catprofile.png"
@@ -50,6 +53,9 @@ label start: #this starts the game
 with fade #this is a transition effect
 #scene blackplaceholder
 
+#Memory minigames
+
+image fire = "Minigames/fire_card.png"
 
  
 #NOTE: ALL sound files must be kept in game folder and don't put it in a subfolder. Ren'py won't recognize it.
@@ -57,7 +63,7 @@ with fade #this is a transition effect
 
 show candlelit #to insert a sprite, type show filename. KEEP ALL IMAGES IN IMAGES FOLDER OF THE GAME
 show myst summon with dissolving 
-play music gamemusic fadein 3.0 #song composed by MAOU on https://opengameart.org/content/mage-theme fadein allows for transition
+play music intromusic fadein 3.0 #song composed by MAOU on https://opengameart.org/content/mage-theme fadein allows for transition
 #NOTE: FILES NAMES SHOULD START WITH LOWER CASE
 
 "I wake up on a desk feeling confused and disoriented."
@@ -147,7 +153,7 @@ play sound pageflip3 #source: https://www.zapsplat.com/music/pages-of-a-paperbac
 scene bookslib
 show myst think
 "Mysterious character lifts a finger and a flying thick book comes towards them. Immediately, its pages open and flips through several pages before landing on a single one. "
- #TO SHOW A SPRITE AGAIN OF THE SAME CHARACTER LATER ON, TRY TO HIDE IT using hide filename
+#TO SHOW A SPRITE AGAIN OF THE SAME CHARACTER LATER ON, TRY TO HIDE IT using hide filename
 "They quietly murmur something and look thoughtfully at the book."
 "My cat hearing seems to be quite handy."
 
@@ -261,7 +267,38 @@ label alldone: #option 3
 
 
 
+scene newplace
+show screen mapbuttonUI
+show screen dictbuttonUI
 
+"test text"
+
+
+label location1:
+    show screen mapbuttonUI #make sure map icon is present in every scene that requires travelling 
+    "testing: you have pressed on location 1"
+    jump minigame1
+    return
+
+
+label minigame1:
+    scene black with dissolving
+    "quiz time"
+    show fire at truecenter with Dissolve (2.0) #places image at centre 
+    hide fire
+    "question 1"
+    menu:
+        "Option A":
+            jump firecorrect
+        "Option B":
+            jump firewrong
+        "Option C":
+            jump firewrong
+
+label firecorrect:
+    "right answer."
+label firewrong:
+    "wrong answer."
 
 
 
