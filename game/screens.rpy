@@ -1005,9 +1005,9 @@ screen mouse_help():
         vbox:
             label _("Right Click")
             text _("Accesses the game menu.")
-        vbox:
-             label _("Mouse Wheel Up\nClick Rollback Side")
-             text _("Rolls back to earlier dialogue.")
+        #vbox:
+            #label _("Mouse Wheel Up\nClick Rollback Side")
+            # text _("Rolls back to earlier dialogue.")
         vbox:
             label _("Mouse Wheel Down")
             text _("Rolls forward to later dialogue.")

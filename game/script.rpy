@@ -2,6 +2,7 @@
 
 define myst =Character("Mysterious Man", image = "mystprofile") #myst is how we will refer to this character in code. In-game he is currently called Mysterious Man
 define you =Character("Player", image = "playerprofile") #same goes for player. 
+define girl =Character("Protagonist1", image = "girlprofile")
 
 #Transtions
 define fade = Fade(1.0,4.0,3.0) #if you want to change transition speed, change values here. (FADEINTIME,HOLDTIME,FADEOUTTIME)
@@ -266,6 +267,8 @@ label alldone: #option 3
     myst "And please don’t forget, your magic is only as strong as the connection you have with yourself and with your partner."
 
 
+scene prologuend
+you "(I wonder where do I go from here? Let's check this map)"
 
 scene newplace
 show screen mapbuttonUI
@@ -276,7 +279,14 @@ show screen dictbuttonUI
 
 label location1:
     show screen mapbuttonUI #make sure map icon is present in every scene that requires travelling 
-    "testing: you have pressed on location 1"
+    "You see a young girl"
+    girl "I want to be a wizard but I can't."
+    you catdefault "(Sounds like she needs help)"
+    you catdefault "I can help you."
+    girl "Really? How?"
+    you catdefault "I can train you, however I need you to prove that you have a lot of dedication."
+    girl "Okay, I'll show you! What do I have to do?"
+    you catdefault "First you must learn the different elements. Here's how."
     jump minigame1
     return
 
@@ -297,10 +307,43 @@ label minigame1:
 
 label firecorrect:
     "right answer."
+    jump minigame2
+
 label firewrong:
     "wrong answer."
+    jump minigame2
+
+label minigame2:
+    hide black
+    "this is a drag and drop minigame"
+    call screen draganddrop #forces to bring the screen draganddrop to this function. 
+    label dragcomplete:
+    "object dropped in place!"
+    jump minigame3
+  
+
+
+label minigame3:
+    $ time = 3
+    #$ timer_range = 3
+    $ timer_jump = 'click_complete'
+    $ click_success = 'pointclick_success'
+    #show screen pointandclick 
+    show screen timer
+  
+    "this is minigame 3"
 
 
 
+label click_complete:
+    "time is up"  
+jump endofminigame3
+
+label pointclick_success:
+    "well done."
+
+
+label endofminigame3:
+    "end of minigame."
 return #return ends the game
 
